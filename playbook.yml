@@ -1,9 +1,11 @@
 #!/usr/bin/env ansible-playbook -i hosts --become -c paramiko
 ---
 
-- name: Ansible Playbook for configuring Pi-Hole on Raspberry Pi
-  hosts: webservers
+- name: Configure all required services on RasPi
+  hosts: raspi
   roles:
-    - pi
+    - pihole
+    - nextcloud
+    - openvpn
   remote_user: pi
   become: yes
